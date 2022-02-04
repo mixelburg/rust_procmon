@@ -1,0 +1,4 @@
+$(@(New-ProcmonFilter -Column 'Process Name' -Relation Is -Value chrome.exe -Action Include) + (Get-DefaultProcmonFilters)) | Start-Procmon;
+Start-Sleep 11;
+Stop-Procmon;
+ConvertTo-ProcmonXML;
